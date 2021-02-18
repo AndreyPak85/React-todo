@@ -1,7 +1,13 @@
 import React from 'react';
+import './app-header';
 
-const AppHeader = () => {
-    return <h1>My Todo List</h1>
+const AppHeader = ({toDo, done}) => {
+    return (
+    <div clasName="app-header d-flex">
+        <h1>Day Schedule</h1>
+        <h3>{toDo} : {done}</h3>
+    </div>
+    );        
 };
 
 export default AppHeader;
