@@ -5,29 +5,29 @@ import './todo-list-item.css';
 export default class TodoListItem extends React.Component { 
 
     
-    constructor () {
-        super();
-        this.state = {
-            done: false,
-            important: false
-        }
+    // constructor () {
+    //     super();
+    //     this.state = {
+    //         done: false,
+    //         important: false
+    //     }
 
-        this.onLabelClick = () => {
-            this.setState(({done}) => {
-                return {
-                    done: !done
-                }
-            })
-        }
+    //     this.onLabelClick = () => {
+    //         this.setState(({done}) => {
+    //             return {
+    //                 done: !done
+    //             }
+    //         })
+    //     }
 
-        this.onMarkImportant = () => {
-            this.setState(({important}) => {
-                return {
-                    important: !important
-                }
-            })
-        }
-    }
+    //     this.onMarkImportant = () => {
+    //         this.setState(({important}) => {
+    //             return {
+    //                 important: !important
+    //             }
+    //         })
+    //     }
+    // }
 
     // state = {
     //     done: false,
@@ -51,10 +51,8 @@ export default class TodoListItem extends React.Component {
     // }
 
     render() {
-            const {label, onDeleted} = this.props;
-
-
-            const {done, important} = this.state;
+            const {important, done, label, onDeleted, onToggleDone, onToggleImportant} = this.props;
+            // const {done, important} = this.state;
             let classNames = 'todo-list-item'
             if (done) {
                 classNames += ' done';
@@ -67,11 +65,11 @@ export default class TodoListItem extends React.Component {
         return (
             <span className={classNames}>
                 <span className="todo-list-item-label"
-                    onClick={ this.onLabelClick }>
+                    onClick={ onToggleDone }>
                          {label}
                 </span>
                 <button className="btn btn-outline-success btn-sm float-right"
-                        onClick={ this.onMarkImportant }>
+                        onClick={ onToggleImportant }>
                     <i className="fa fa-exclamation" />
                 </button>
                 <button type="button"
